@@ -10,3 +10,7 @@ bower_components/
 *.png
 test.js
 testData.js
+
+# Mac
+*.DS_Store
+*.sw[op]

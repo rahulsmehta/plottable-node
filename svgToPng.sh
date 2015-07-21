@@ -5,4 +5,4 @@ if [ "$#" -ne 1 ]; then
 	exit 1
 fi
 
-qlmanage -t -s 1000 -o . $1
+qlmanage -t -s 2000 -o . $1

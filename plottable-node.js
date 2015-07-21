@@ -5,10 +5,10 @@ var path = require('path');
 
 var _dataFile;
 var _configFile;
-var _outputFile;
+var _outputFile = '/Volumes/git/plottable-node/out.out';
 var _svgHeight;
 var _svgWidth;
-var _templateFile = __dirname + '/template.html';
+var _templateFile = __dirname + '/template2.html';
 var _readmeFile = __dirname + 'README.md';
 var _plottableCSS = __dirname + '/bower_components/plottable/plottable.css';
 
@@ -19,8 +19,8 @@ function createPlotAndExtractSVG() {
         if (status !== "success") {
           throw new Error("Could not find file " + _templateFile);
         }
-        _prepareSVG(page);
-        _runPlottable(page);
+//        _prepareSVG(page);
+//        _runPlottable(page);
         _extractSVG(page);
         ph.exit();
       });
@@ -54,7 +54,8 @@ function _runPlottable(page) {
 
 function _extractSVG(page) {
   page.evaluate(function() {
-    var node = document.getElementById('svg');
+    console.log("in extract svg");
+    var node = document.getElementById('mysvg');
     node.setAttribute("xmlns", "http://www.w3.org/2000/svg");
     var svgData = new XMLSerializer().serializeToString(node);
     return svgData;
@@ -141,7 +142,7 @@ function showHelp() {
 }
 
 function start() {
-  processArguments();
+//  processArguments();
   createPlotAndExtractSVG();
 }
 
