@@ -85,7 +85,7 @@ function generateCSS(callback) {
 function processArguments() {
     var inputSvgFile = process.argv[2];
     _rawSvg = fs.readFileSync(inputSvgFile,{'encoding':'utf-8'});
-    var rawHtml = fs.readFileSync(__dirname+'/template2.html',{'encoding':'utf-8'});
+    var rawHtml = fs.readFileSync(__dirname+'/template.html',{'encoding':'utf-8'});
     rawHtml = rawHtml.replace("{{SVG}}",_rawSvg);
     var templateId = crypto.randomBytes(20).toString('hex');
     _sourceFile += templateId+'.html';
